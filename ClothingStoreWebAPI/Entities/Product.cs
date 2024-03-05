@@ -1,16 +1,20 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace ClothingStoreWebAPI.Entities
 {
 	public class Product
 	{
-		public string ?ProductName { get; set; }
-		public string ?ProductDescription { get; set; }
-
+		[Key]
+		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int ProductId { get; set; }
 
-		public int ProductCategoryId { get; set;}
+		public string Name { get; set; } = string.Empty;
+		public string Description { get; set; } = string.Empty;
+		public double Price { get; set; }
+		public string ImageUrl { get; set; } = string.Empty;
 
-		public int Price {  get; set; }
-
-		public int ImageID {  get; set; }
+		[ForeignKey("CategoryId")]
+		public int CategoryId { get; set; }
 	}
 }

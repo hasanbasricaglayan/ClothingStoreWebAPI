@@ -1,11 +1,16 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace ClothingStoreWebAPI.Entities
 {
 	public class OrderProduct
 	{
-		public int IdOrderProduct { get; set; }
+		[Key]
+		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+		public int OrderProductId { get; set; }
 
-		public int ProductId { get; set; }
-
-		public int Price {  get; set; }
+		public Product Product { get; set; } = new Product();
+		public int Quantity { get; set; }
+		public int Price { get; set; }
 	}
 }
