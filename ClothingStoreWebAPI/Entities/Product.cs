@@ -9,8 +9,10 @@ namespace ClothingStoreWebAPI.Entities
 
 		public int ProductCategoryId { get; set;}
 
-		public int Price {  get; set; }
+		public double Price {  get; set; }
 
-		public int ImageID {  get; set; }
+		//public int ImageID {  get; set; }
+
+		public string ?UrlImage {  get; set; }
 	}
 }

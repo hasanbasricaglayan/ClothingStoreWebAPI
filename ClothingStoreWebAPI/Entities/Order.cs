@@ -4,7 +4,7 @@ namespace ClothingStoreWebAPI.Entities
 	{
 		public int OrderId { get; set; }
 
-		public int OrderProductId { get; set; }
+		public List<OrderProduct> OrderProductId { get; set; }
 
 		public int UserId { get; set; }
 	}
