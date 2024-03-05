@@ -81,6 +81,9 @@ namespace ClothingStoreWebAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderId"));
 
+                    b.Property<int>("OrderProductId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -98,12 +101,14 @@ namespace ClothingStoreWebAPI.Migrations
                         new
                         {
                             OrderId = 1,
+                            OrderProductId = 0,
                             Status = "Terminé",
                             UserId = 1
                         },
                         new
                         {
                             OrderId = 2,
+                            OrderProductId = 0,
                             Status = "En cours",
                             UserId = 3
                         });
@@ -183,6 +188,9 @@ namespace ClothingStoreWebAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("ImageID")
+                        .HasColumnType("int");
+
                     b.Property<string>("ImageUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -206,6 +214,7 @@ namespace ClothingStoreWebAPI.Migrations
                             ProductId = 1,
                             CategoryId = 1,
                             Description = "Chemise élégante pour hommes",
+                            ImageID = 0,
                             ImageUrl = "vet",
                             Name = "Chemise homme",
                             Price = 49.0
@@ -215,6 +224,7 @@ namespace ClothingStoreWebAPI.Migrations
                             ProductId = 2,
                             CategoryId = 2,
                             Description = "Robe élégante pour les occasions spéciales",
+                            ImageID = 0,
                             ImageUrl = "rob",
                             Name = "Robe de soirée",
                             Price = 129.0
@@ -224,6 +234,7 @@ namespace ClothingStoreWebAPI.Migrations
                             ProductId = 3,
                             CategoryId = 3,
                             Description = "Jean slim pour un look décontracté",
+                            ImageID = 0,
                             ImageUrl = "jean",
                             Name = "Jean slim",
                             Price = 69.0

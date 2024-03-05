@@ -11,6 +11,8 @@ namespace ClothingStoreWebAPI.Entities
         public List<OrderProduct> OrderProducts { get; set; } = [];
         public int OrderProductId { get; set; }
 
+		public string Status { get; set; }
+
 		[ForeignKey("UserId")]
 		public int UserId { get; set; }
 	}
