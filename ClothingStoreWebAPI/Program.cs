@@ -1,3 +1,5 @@
+using ClothingStoreWebAPI.Data;
+
 string CorsPolicy = "CorsPolicy";
 
 // New instance of the WebApplicationBuilder class with preconfigured defaults
@@ -14,7 +16,7 @@ builder.Services.AddCors(options =>
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddDbContext<StoreData>();
 // Building of the WebApplication
 WebApplication app = builder.Build();
 

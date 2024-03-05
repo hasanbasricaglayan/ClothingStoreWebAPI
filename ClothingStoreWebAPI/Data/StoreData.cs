@@ -39,76 +39,88 @@ namespace ClothingStoreWebAPI.Data
 					,Password = "VictorH"
 				},
 			};
+			modelBuilder.Entity<User>().HasData(users);
 
 			var products = new Product[]
 			{
 				new Product
 				{
-					ProductName = "Chemise homme",ProductDescription = "Chemise élégante pour hommes",
-					ProductId = 1,ProductCategoryId = 1,Price = 49,UrlImage = "vet"
+					Name = "Chemise homme",Description = "Chemise élégante pour hommes",
+					ProductId = 1,CategoryId = 1,Price = 49,ImageUrl = "vet"
 				},
 				new Product
 				{
-					ProductName = "Robe de soirée",ProductDescription = "Robe élégante pour les occasions spéciales",
-					ProductId = 2,ProductCategoryId = 2,Price = 129,UrlImage = "rob"
+					Name = "Robe de soirée",Description = "Robe élégante pour les occasions spéciales",
+					ProductId = 2,CategoryId = 2,Price = 129,ImageUrl = "rob"
 				},
 				new Product
 				{
-					ProductName = "Jean slim",ProductDescription = "Jean slim pour un look décontracté",
-					ProductId = 3,ProductCategoryId = 3,Price = 69,UrlImage = "jean",
+					Name = "Jean slim",Description = "Jean slim pour un look décontracté",
+					ProductId = 3,CategoryId = 3,Price = 69,ImageUrl = "jean",
 				},
 
 
 			};
+			modelBuilder.Entity<Product>().HasData(products);
 
 			var categorys = new Category[]
 			{
 				new Category
 				{
-					CategoryId = 1, CategoryName="Homme"
+					CategoryId = 1, Name="Homme"
 				},
 				new Category
 				{
-					CategoryId= 2, CategoryName="Femme"
+					CategoryId= 2, Name="Femme"
 				},
-				new Category{ CategoryId= 3,CategoryName = "Enfant"}
+				new Category{ CategoryId= 3,Name = "Enfant"}
 			};
+
+			modelBuilder.Entity<Category>().HasData(categorys);
+
 			var orders = new Order[]
 			{
 				new Order
 				{
 					OrderId = 1,
 					UserId = 1,
-					OrderProductId = new List<OrderProduct>()
-					{
-						new OrderProduct
-						{
-							IdOrderProduct=1,ProductId=1,Price=49, Quantity=5
-						},
-						new OrderProduct
-						{
-							IdOrderProduct=2,ProductId=2,Price=129,Quantity=2
-						}
-					}
+					Status = "Terminé",
+					//OrderProducts = new List<OrderProduct>()
+					
 				},
-				new Order
+
+			new Order
 				{
 					OrderId = 2,
 					UserId = 3,
-					OrderProductId = new List<OrderProduct>()
-					{
-						new OrderProduct
+					Status = "En cours",
+					//OrderProducts = new List<OrderProduct>()
+					
+				},
+			};
+			modelBuilder.Entity<Order>().HasData(orders);
+
+			var ordersProducts = new OrderProduct[]
+			{
+				new OrderProduct
 						{
-							IdOrderProduct=3,ProductId=3,Price=69, Quantity=1
+							OrderProductId=3,ProductId=3,Price=69, Quantity=1
 						},
 						new OrderProduct
 						{
-							IdOrderProduct=4,ProductId=2,Price=100,Quantity=2
+							OrderProductId=4,ProductId=2,Price=100,Quantity=2
+						},
+						new OrderProduct
+						{
+							OrderProductId=1,ProductId=1,Price=49, Quantity=5
+						},
+						new OrderProduct
+						{
+							OrderProductId=2,ProductId=2,Price=129,Quantity=2
 						}
-					}
-				},
 			};
-			
+			modelBuilder.Entity<OrderProduct>().HasData(ordersProducts);
+
 		}
 	}
 }
